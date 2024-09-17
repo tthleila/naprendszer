@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naprendszer</title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+    <video autoplay muted loop id="bg-video">
+        <source src="star.mp4" type="video/mp4">
+    </video>
+        <div class="solar-system">
+            <div class="sun"></div>
+
+            <div class="orbit" style="width: 200px; height: 200px; top: 50%; left: 50%;"></div>
+            <div class="orbit" style="width: 300px; height: 300px; top: 50%; left: 50%;"></div>
+            <div class="orbit" style="width: 400px; height: 400px; top: 50%; left: 50%;"></div>
+            <div class="orbit" style="width: 500px; height: 500px; top: 50%; left: 50%;"></div>
+            <div class="orbit" style="width: 600px; height: 600px; top: 50%; left: 50%;"></div>
+            <div class="orbit" style="width: 700px; height: 700px; top: 50%; left: 50%;"></div>
+            <div class="orbit" style="width: 800px; height: 800px; top: 50%; left: 50%;"></div>
+            <div class="orbit" style="width: 900px; height: 900px; top: 50%; left: 50%;"></div>
+
+            <div class="planet mercury" style=" --orbit-radius: 100px; animation-duration: 2s;"></div>
+            <div class="planet venus" style="--orbit-radius: 150px; animation-duration: 4s;"></div>
+            <div class="planet earth" style="--orbit-radius: 220px; animation-duration: 7s;"></div>
+            <div class="planet mars" style="--orbit-radius: 265px; animation-duration: 11s;"></div>
+            <div class="planet jupiter" style="--orbit-radius: 310px; animation-duration: 19s;"></div>
+            <div class="planet saturn" style="--orbit-radius: 380px; animation-duration: 25s;"></div>
+            <div class="planet uranus" style="--orbit-radius: 450px; animation-duration: 31s;"></div>
+            <div class="planet neptune" style="--orbit-radius: 500px; animation-duration: 34s;"></div>
+        </div>
+
+        <script>
+
+            const planets = document.querySelectorAll('.planet');
+            planets.forEach(planet => {
+                const orbitRadius = parseFloat(getComputedStyle(planet).getPropertyValue('--orbit-radius')) / 360;
+                planet.style.animation = `orbit ${planet.style.animationDuration} infinite linear`;
+                planet.style.top = `calc(50% - ${orbitRadius}px)`;
+                planet.style.left = `calc(50% - ${planet.offsetWidth / 2}px)`;
+            }, 10);
+           
+        </script>
+</body>
+</html>
+
+
+
+
+
